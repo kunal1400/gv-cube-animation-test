@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cube Animation</title>
+	<style type="text/css">
+		.orange { background-color: #ffa500c7; }
+		.red {  background-color: #ff0000c7; }
+		.pink {  background-color: #ffc0cbd1; }
+		.blue {  background-color: #0000ffb8; }
+		.yellow { background-color: #ffff00d6; }
+		.darkorange { background-color: #ff4500f5; }
+
+		.scene {
+			width: 200px;
+			height: 200px;
+			perspective: 600px;
+			position: relative;
+			margin-left: 250px;
+			margin-top: 200px;
+			margin-bottom: 200px;
+		}
+
+		.cube {
+		  width: 100%;
+		  height: 100%;
+		  position: relative;
+		  transform-style: preserve-3d;
+		}
+
+		.cube__face {
+		  /*position: absolute;*/
+		  width: 200px;
+		  height: 200px;
+		}
+
+		/** Setting animations **/		
+		.cube__face--top {
+			position: absolute;
+    		bottom: 100%;
+			animation: topAnimation 2s 1 linear; 
+			-webkit-animation-fill-mode: forwards;
+			animation-delay: 3s;
+		}
+		.cube__face--left {
+			position: absolute;
+		    right: 100%;
+		    top: 0;
+			animation: leftAnimation 2s 1 linear; 
+			-webkit-animation-fill-mode: forwards;
+			animation-delay: 5s;
+		}
+		.cube__face--bottom {
+			position: absolute;
+    		top: 100%;
+			animation: bottomAnimation 2s 1 linear; 
+			-webkit-animation-fill-mode: forwards;
+			animation-delay: 7s;
+		}
+		.cube__face--right {
+			position: absolute;
+		    left: 100%;
+		    top: 0;
+			animation: rightAnimation 2s 1 linear; 
+			-webkit-animation-fill-mode: forwards;
+			animation-delay: 9s;
+		}
+		.cube__face--back  { 
+			position: absolute;
+			bottom: 0;
+			top: 0;
+			animation: backAnimation 2s 1 linear; 
+			-webkit-animation-fill-mode: forwards;
+			animation-delay: 11s;
+		}
+		.cube__face--front {
+			position: absolute;
+    		left: 200%;
+			animation: frontAnimation 2s 1 linear; 
+			-webkit-animation-fill-mode: forwards;
+			animation-delay: 13s;
+		}		
+
+		@keyframes frontAnimation {
+			from {
+				position: relative;
+				transform: rotateY(0deg) translateZ(0px);
+			}
+			to {
+				position: absolute;
+	    		left: 0;
+				transform: rotateY(0deg) translateZ(100px);
+			}
+		}
+
+		@keyframes rightAnimation {
+			from {
+				position: relative;
+				transform: rotateY( 90deg) translateZ(0px);
+			}
+			to {
+				position: absolute;
+				left: 0;
+		    	top: 0;
+				transform: rotateY( 90deg) translateZ(100px);
+			}
+		}
+
+		@keyframes leftAnimation {
+			from {
+				position: relative;
+				transform: rotateY(-90deg) translateZ(0px);
+			}
+			to {
+				position: absolute;
+				right: 0;
+		    	top: 0;
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+		}
+		
+		@keyframes bottomAnimation {
+			from {
+				position: relative;
+				transform: rotateX(-90deg) translateZ(0px);
+			}
+			to {
+				position: absolute;
+				top: 0;
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+		}
+
+		@keyframes topAnimation {
+			from {
+				position: relative;
+				transform: rotateX( 90deg) translateZ(0px);
+			}
+			to {
+				position: absolute;
+				bottom: 0;
+				transform: rotateX( 90deg) translateZ(100px);
+			}
+		}
+
+		@keyframes backAnimation {
+			from {
+				position: relative;
+				transform: rotateY(180deg) translateZ(0px);
+			}
+			to {
+				position: absolute;
+				transform: rotateY(180deg) translateZ(100px);
+			}
+		}
+
+		/*.cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+		.cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+		.cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+		.cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+		.cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+		.cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+		.cube { transform: translateZ(-100px); }*/
+
+	</style>
+</head>
+<body>	
+	<h1>This html will get converted into CUBE. Animation start after 3 sec and end in 13 sec</h1>
+	<div  class="scene">
+	  <div class="cube">
+	    <div class="cube__face cube__face--front pink"></div>
+	    <div class="cube__face cube__face--back orange"></div>
+	    <div class="cube__face cube__face--right blue"></div>
+	    <div class="cube__face cube__face--left yellow"></div>
+	    <div class="cube__face cube__face--top pink"></div>
+	    <div class="cube__face cube__face--bottom darkorange"></div>
+	  </div>
+	</div>	
+
+</body>
+</html>
